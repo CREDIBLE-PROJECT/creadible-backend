@@ -27,7 +27,6 @@ public class FileItemReaderJobConfig {
                 .next(csvFileItemAfterReaderStep())
                 .build();
     }
-
     @Bean
     public Step csvFileItemBeforeReaderStep() throws Exception {
         return stepBuilderFactory.get("csvFileItemBeforeReaderStep")
@@ -36,7 +35,6 @@ public class FileItemReaderJobConfig {
                 .writer(csvBeforeWriter)
                 .build();
     }
-
     @Bean
     public Step csvFileItemAfterReaderStep() {
         return stepBuilderFactory.get("csvFileItemAfterReaderStep")

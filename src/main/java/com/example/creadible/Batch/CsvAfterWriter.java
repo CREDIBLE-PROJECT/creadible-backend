@@ -16,27 +16,33 @@ public class CsvAfterWriter implements ItemWriter<ModelCsvDto> {
     @Override
     public void write(List<? extends ModelCsvDto> list) throws Exception {
         List<Model> modelList = new ArrayList<>();
-        list.forEach(csv -> {
-            Model model = Model.builder()
-                    .age(Integer.parseInt(csv.getAge()))
-                    .applicantIncome(Integer.parseInt(csv.getApplicantIncome()))
-                    .applicantWorkPeriod(Integer.parseInt(csv.getApplicantWorkPeriod()))
-                    .businessType(Integer.parseInt(csv.getBusinessType()))
-                    .coapplicantIncome(Float.parseFloat(csv.getCoapplicantIncome()))
-                    .creditAmount(Integer.parseInt(csv.getCreditAmount()))
-                    .creditHistory(Float.parseFloat(csv.getCreditHistory()))
-                    .creditRate(Integer.parseInt(csv.getCreditRate()))
-                    .dependents(Integer.parseInt(csv.getDependents()))
-                    .education(Integer.parseInt(csv.getEducation()))
-                    .gender(Integer.parseInt(csv.getGender()))
-                    .isLearned(false)
-                    .loanAmount(Integer.parseInt(csv.getLoanAmount()))
-                    .loanTerm(Integer.parseInt(csv.getLoanTerm()))
-                    .married(Integer.parseInt(csv.getMarried()))
-                    .propertyArea(Integer.parseInt(csv.getPropertyArea()))
-                    .build();
-            modelList.add(model);
-        });
-        modelRepository.saveAll(modelList);
+        try {
+            list.forEach(csv -> {
+                if(!csv.getCreditHistory().isEmpty()) {
+                    Model model = Model.builder()
+                            .age(Integer.parseInt(csv.getAge()))
+                            .applicantIncome(Integer.parseInt(csv.getApplicantIncome()))
+                            .applicantWorkPeriod(Integer.parseInt(csv.getApplicantWorkPeriod()))
+                            .businessType(Integer.parseInt(csv.getBusinessType()))
+                            .coapplicantIncome(Float.parseFloat(csv.getCoapplicantIncome()))
+                            .creditAmount(Integer.parseInt(csv.getCreditAmount()))
+                            .creditHistory(Float.parseFloat(csv.getCreditHistory()))
+                            .creditRate(Integer.parseInt(csv.getCreditRate()))
+                            .dependents(Integer.parseInt(csv.getDependents()))
+                            .education(Integer.parseInt(csv.getEducation()))
+                            .gender(Integer.parseInt(csv.getGender()))
+                            .isLearned(false)
+                            .loanAmount(Integer.parseInt(csv.getLoanAmount()))
+                            .loanTerm(Integer.parseInt(csv.getLoanTerm()))
+                            .married(Integer.parseInt(csv.getMarried()))
+                            .propertyArea(Integer.parseInt(csv.getPropertyArea()))
+                            .build();
+                    modelList.add(model);
+                }
+            });
+            modelRepository.saveAll(modelList);
+        }catch (Exception e) {
+
+        }
     }
 }
