@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
+import java.util.HashSet;
 
 @Getter
 @NoArgsConstructor
@@ -18,6 +19,7 @@ public class User {
     private String loginId;
     private String password;
     private String name;
+    private boolean gender;
     //LocalDate => 날짜 정보만 출력. ex) 2019-11-13
     private LocalDate birthday;
     @Email
@@ -26,12 +28,18 @@ public class User {
     private Role role;
 
     @Builder
-    public User(String loginId, String password, String name, LocalDate birthday, String email, Role role) {
+    public User(String loginId, String password, String name, LocalDate birthday, String email, Role role, boolean gender) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;
         this.birthday = birthday;
         this.email = email;
         this.role = role;
+        this.gender = gender;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.role = Role.USER;
     }
 }

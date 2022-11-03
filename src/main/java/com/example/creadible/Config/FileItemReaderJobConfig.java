@@ -2,6 +2,7 @@ package com.example.creadible.Config;
 
 import com.example.creadible.Batch.*;
 import com.example.creadible.Model.web.dto.ModelCsvDto;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.*;
