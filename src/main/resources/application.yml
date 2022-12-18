@@ -26,4 +26,35 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: true
+      enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: server
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://13.124.78.44:3306/credible?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: P@ssw0rd
+  jpa:
+    show_sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    database: mysql
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false #시작과 동시에 실행되는 건 방지
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB

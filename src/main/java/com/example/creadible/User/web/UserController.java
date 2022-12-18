@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Tag(name = "User", description = "유저 API")
 @RequiredArgsConstructor
 @RestController
@@ -22,7 +24,7 @@ public class UserController {
     @Operation(summary = "signup of user", description = "회원가입")
     @ApiResponses({@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = UserSignUpDto.class)))})
     @PostMapping("/signup")
-    public ResponseEntity<UserResponseDto> signup(@RequestBody UserSignUpDto userSignUpDto) {
+    public ResponseEntity<UserResponseDto> signup(@Valid @RequestBody UserSignUpDto userSignUpDto) {
         UserResponseDto userResponseDto = userService.signUp(userSignUpDto);
 
         return ResponseEntity.status(HttpStatus.OK).body(userResponseDto);
