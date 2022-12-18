@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @Operation(summary = "credit score of user", description = "유저의 신용등급 확인")
-    @ApiResponses({@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = UserSignUpDto.class)))})
+    @ApiResponses({@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = UserScoreResponseDto.class)))})
     @GetMapping("/data")
     public ResponseEntity<UserScoreResponseDto> rank() {
         UserScoreResponseDto userScoreResponseDto = userService.calculate();
