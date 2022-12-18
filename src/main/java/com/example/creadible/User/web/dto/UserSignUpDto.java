@@ -2,9 +2,11 @@ package com.example.creadible.User.web.dto;
 
 import com.example.creadible.User.domain.entity.User;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 @Getter
+@NoArgsConstructor
 public class UserSignUpDto {
     private String loginId;
     private String password;

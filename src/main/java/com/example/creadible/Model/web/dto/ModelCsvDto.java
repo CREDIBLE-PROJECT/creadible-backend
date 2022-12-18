@@ -3,7 +3,6 @@ package com.example.creadible.Model.web.dto;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
 public class ModelCsvDto {
     private String id;
     private String isLearned;
