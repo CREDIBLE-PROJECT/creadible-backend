@@ -23,5 +23,4 @@ public class ModelCsvDto {
     private String creditRate;
     private String loanAmount;
     private String loanTerm;
-
 }

@@ -28,7 +28,7 @@ public class ModelController {
     @Operation(summary = "get data from XAI Model", description = "XAI로부터 데이터 가져오기")
     @ApiResponses({@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = UserSignUpDto.class)))})
     @PostMapping("/data")
-    public ResponseEntity<String> learning(@RequestBody MultipartFile multipartFile) {
+    public ResponseEntity<String> learning() {
         return ResponseEntity.status(HttpStatus.OK).body("ho");
     }
 }
