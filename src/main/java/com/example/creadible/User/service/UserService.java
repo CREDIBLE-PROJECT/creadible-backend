@@ -4,5 +4,6 @@ import com.example.creadible.User.web.dto.*;
 
 public interface UserService {
     UserResponseDto signUp(UserSignUpDto userSignUpDto);
-    UserScoreResponseDto calculate();
+    UserScoreResponseDto calculate(String userName);
+    UserResponseDto login(UserLoginDto loginDto);
 }

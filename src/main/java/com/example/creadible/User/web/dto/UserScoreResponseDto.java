@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class UserScoreResponseDto {
+    private final String name;
     private final int score;
     //대출 금액
     private final double loanAmountPercent;
@@ -31,7 +32,8 @@ public class UserScoreResponseDto {
     //대출 심사 예측
     private final int predict;
 
-    public UserScoreResponseDto(int score, double loanAmountPercent, long loanAmount, double percent, long creditAmount, double creditAmountPercent, int propertyType, double propertyTypePercent, long applicantIncome, double applicantIncomePercent, long creditHistory, double creditHistoryPercent, long applicantWorkPeriod, double applicantWorkPeriodPercent, long loanTerm, double loanTermPercent, int predict) {
+    public UserScoreResponseDto(String name, int score, double loanAmountPercent, long loanAmount, double percent, long creditAmount, double creditAmountPercent, int propertyType, double propertyTypePercent, long applicantIncome, double applicantIncomePercent, long creditHistory, double creditHistoryPercent, long applicantWorkPeriod, double applicantWorkPeriodPercent, long loanTerm, double loanTermPercent, int predict) {
+        this.name = name;
         this.score = score;
         this.loanAmountPercent = loanAmountPercent;
         this.loanAmount = loanAmount;
